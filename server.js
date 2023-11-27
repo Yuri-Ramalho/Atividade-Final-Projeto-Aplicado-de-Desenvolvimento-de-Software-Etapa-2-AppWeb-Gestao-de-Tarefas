@@ -12,7 +12,7 @@ Parse.serverURL = 'https://parseapi.back4app.com/';
 
 // Enable CORS for all routes
 app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', 'http://localhost:3000'); // Update this with your front-end domain
+  res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
   res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
   // Add the following line to expose headers

@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', async function () {
    // Check if user is logged in
    if (!Parse.User.current()) {
     alert('Please log in before adding a task.');
-    window.location.href = 'login-page.html'; // Redirect to your login page
+    window.location.href = 'login-page.html';
     return;
   }
 
