@@ -4,14 +4,13 @@ document.addEventListener('DOMContentLoaded', async function () {
     
     if (!Parse.User.current()) {
       alert('Please log in to edit tasks.');
-      window.location.href = 'login-page.html'; // Redirect to your login page
+      window.location.href = 'login-page.html'; 
       return;
     }
   
     const taskId = getTaskIdFromUrl();
     const task = await fetchTask(taskId);
-  
-    // Populate the form fields with the task data
+
     document.getElementById('taskTitle').value = task.get('title');
     document.getElementById('taskDescription').value = task.get('description');
     document.getElementById('dueDate').value = task.get('dueDate').toISOString().split('T')[0];
@@ -31,7 +30,6 @@ document.addEventListener('DOMContentLoaded', async function () {
     }
   
     async function editTask(task) {
-      // Update the task fields based on the form data
       task.set('title', document.getElementById('taskTitle').value);
       task.set('description', document.getElementById('taskDescription').value);
       task.set('dueDate', new Date(document.getElementById('dueDate').value));
@@ -41,7 +39,6 @@ document.addEventListener('DOMContentLoaded', async function () {
       await task.save();
         
       alert('Task edited successfully!');
-      // Redirect to task-list.html after editing a task
       window.location.href = 'task-list.html';
     }
   

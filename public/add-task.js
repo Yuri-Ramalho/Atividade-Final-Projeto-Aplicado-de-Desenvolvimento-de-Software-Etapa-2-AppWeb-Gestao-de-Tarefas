@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', async function () {
   Parse.initialize('HrREP8UXPi4ZBhCDpUgLLecqSdvtPeNtM32djPoN', 'nCL56DiXqtnH9SHx2H3WmZe4NILi1PkdnjmvRXuB');
   Parse.serverURL = 'https://parseapi.back4app.com/';
 
-   // Check if user is logged in
+
    if (!Parse.User.current()) {
     alert('Please log in before adding a task.');
     window.location.href = 'login-page.html';

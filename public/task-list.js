@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', async function () {
   
   if (!Parse.User.current()) {
     alert('Please log in to view tasks.');
-    window.location.href = 'login-page.html'; // Redirect to your login page
+    window.location.href = 'login-page.html';
     return;
   }
 
@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', async function () {
       const formattedDueDate = adjustedDueDate.toLocaleDateString();
 
       const row = document.createElement('tr');
-      row.setAttribute('data-task-id', task.id); // Add this line
+      row.setAttribute('data-task-id', task.id); 
       row.innerHTML = `
         <td>${task.get('title')}</td>
         <td>${task.get('description')}</td>
@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', async function () {
           <button class="btn btn-danger btn-sm" onclick="deleteTask('${task.id}')"><i class="fas fa-trash"></i> Delete</button>
         </td>
       `;
-      // Add a "Task Completed" button to the action column
+
       const taskCompletedButton = document.createElement('button');
       taskCompletedButton.classList.add('btn', 'btn-success', 'btn-sm');
       taskCompletedButton.innerText = task.get('completed') ? 'Task Completed ✔️' : 'Task Completed';
@@ -70,8 +70,7 @@ document.addEventListener('DOMContentLoaded', async function () {
         const query = new Parse.Query(Task);
   
         const task = await query.get(taskId);
-  
-         // Check if the task belongs to the current user before deleting
+
          if (task.get('user').id === Parse.User.current().id) {
           await task.destroy();
           await fetchAndRenderTasks();
@@ -84,7 +83,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     }
   };
 
-  // Add this function to mark a task as completed
+
   async function markTaskAsCompleted(taskId) {
     try {
       const Task = Parse.Object.extend('Task');
@@ -92,17 +91,15 @@ document.addEventListener('DOMContentLoaded', async function () {
 
       const task = await query.get(taskId);
 
-      // Check if the task belongs to the current user before updating
+
       if (task.get('user').id === Parse.User.current().id) {
         const completed = !task.get('completed');
         task.set('completed', completed);
         await task.save();
 
-        // Toggle a 'completed' class on the task row
         const taskRow = document.querySelector(`[data-task-id="${taskId}"]`);
         if (taskRow) {
           taskRow.classList.toggle('completed');
-          // Update the "Task Completed" button text
           const taskCompletedButton = taskRow.querySelector('.btn-success');
           taskCompletedButton.innerText = completed ? 'Task Completed ✔️' : 'Task Completed';
         }

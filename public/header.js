@@ -1,18 +1,15 @@
 window.onload = function() {
-    // Load the header
     fetch('header.html')
       .then(response => response.text())
       .then(data => {
         document.getElementById('header-placeholder').innerHTML = data;
   
-        // Check for logged in user
         const currentUser = Parse.User.current();
         const navbarLinks = document.getElementById('navbar-links');
         if (currentUser) {
           let profilePictureUrl = currentUser.get('profilePicture');
-          // If the user doesn't have a profile picture, use a default picture
           if (!profilePictureUrl) {
-            profilePictureUrl = 'default-picture.jpg'; // Replace with your default picture URL
+            profilePictureUrl = 'default-picture.jpg'; 
           }
           navbarLinks.innerHTML = `
             <div class="btn-group">

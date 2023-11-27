@@ -19,15 +19,13 @@ document.addEventListener('DOMContentLoaded', function() {
         const username = currentUser.get('username');
         const email = currentUser.get('email');
 
-        // If the user doesn't have a profile picture, use a default picture
         if (!profilePictureUrl) {
-          profilePictureUrl = 'default-picture.jpg'; // Replace with your default picture URL
+          profilePictureUrl = 'default-picture.jpg'; 
           profilePicture.alt = 'No profile picture. Click "Change Picture" to add one.';
         }
 
         updateUI(profilePictureUrl, username, email);
       } else {
-        // User is not logged in
         alert('Please log in');
       }
     } catch (error) {
@@ -87,7 +85,6 @@ document.addEventListener('DOMContentLoaded', function() {
         usernameInput.readOnly = true;
         emailInput.readOnly = true;
       } else {
-        // User is not logged in
         alert('Please log in');
       }
     } catch (error) {

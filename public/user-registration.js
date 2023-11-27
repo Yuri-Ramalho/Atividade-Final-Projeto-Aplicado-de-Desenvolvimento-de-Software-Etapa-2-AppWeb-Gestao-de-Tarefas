@@ -14,7 +14,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const confirmPassword = document.getElementById('confirmPassword').value;
 
     if (password !== confirmPassword) {
-      // Get the alert div
       const alertDiv = document.getElementById('alert');
       alertDiv.innerHTML = 'Passwords do not match.';
       alertDiv.classList.add('alert-danger');
@@ -23,21 +22,19 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     try {
-      // Query for the user
+
       const query = new Parse.Query(Parse.User);
       query.equalTo('username', username);
       let user = await query.first();
     
       if (!user) {
-        // User doesn't exist, create a new one
         user = new Parse.User();
         user.set('username', username);
         user.set('password', password);
         user.set('email', email);
     
         await user.signUp();
-        
-        // Log out the user after registration
+
         await Parse.User.logOut();
     
         const alertDiv = document.getElementById('alert');

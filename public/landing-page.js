@@ -2,7 +2,6 @@ document.addEventListener('DOMContentLoaded', async function () {
   Parse.initialize('HrREP8UXPi4ZBhCDpUgLLecqSdvtPeNtM32djPoN', 'nCL56DiXqtnH9SHx2H3WmZe4NILi1PkdnjmvRXuB');
   Parse.serverURL = 'https://parseapi.back4app.com/';
   
-  // Add this code to check for logged in user
   const currentUser = Parse.User.current();
   if (currentUser) {
     document.getElementById('loggedInUser').innerText = currentUser.getUsername();
