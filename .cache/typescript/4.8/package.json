@@ -1,0 +1,9 @@
+{
+  "private": true,
+  "dependencies": {
+    "types-registry": "^0.1.670"
+  },
+  "devDependencies": {
+    "@types/parse": "^3.0.6"
+  }
+}

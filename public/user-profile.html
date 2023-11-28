@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Profile</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <style>
+    body {
+      background-image: url('background-image2.jpg');
+      background-size: cover;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 600px;
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .profile-picture {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border: 4px solid #fff;
+      border-radius: 50%;
+    }
+
+    .edit-button {
+      background-color: #007BFF;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .edit-input {
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <a class="btn btn-secondary mb-4" href="landing-page.html">
+      <i class="fa fa-arrow-left"></i> Back
+    </a>
+    <div class="card">
+      <div class="card-body">
+        <h2 class="card-title text-center mb-4">User Profile</h2>
+        <div class="row mb-3">
+          <div class="col-md-6 text-center">
+            <img src="profile-picture.jpg" alt="Profile Picture" class="profile-picture" id="profilePicture">
+            <button type="button" class="btn edit-button mt-3" id="changePictureBtn">Change Picture</button>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Username</label>
+              <div class="d-flex">
+                <input type="text" class="form-control edit-input" id="username" readonly>
+                <button type="button" class="btn edit-button ml-2" id="editUsernameBtn">Edit</button>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Email</label>
+              <div class="d-flex">
+                <input type="email" class="form-control edit-input" id="email" readonly>
+                <button type="button" class="btn edit-button ml-2" id="editEmailBtn">Edit</button>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Password</label>
+              <div class="d-flex">
+                <button type="button" class="btn edit-button ml-2" id="resetPasswordBtn">Reset Password</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button type="button" class="btn btn-primary btn-block" id="saveChangesBtn">Save Changes</button>
+      </div>
+    </div>
+  </div>
+  <script src="https://npmcdn.com/parse/dist/parse.min.js"></script>
+  <script src="user-profile.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+</body>
+
+</html>
