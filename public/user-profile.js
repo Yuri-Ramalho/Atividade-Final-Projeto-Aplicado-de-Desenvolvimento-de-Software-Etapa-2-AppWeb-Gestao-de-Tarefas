@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
   
-  Parse.initialize('HrREP8UXPi4ZBhCDpUgLLecqSdvtPeNtM32djPoN', 'nCL56DiXqtnH9SHx2H3WmZe4NILi1PkdnjmvRXuB');
+  Parse.initialize('yArd5jI5uzEul4ob6EsljpN9okK0pzy4ttt994Ky', '7hmaVfjipCJYzGFijg6SqXxpgepy4KfBjmzWkX09');
   Parse.serverURL = 'https://parseapi.back4app.com/';
 
   const profilePicture = document.getElementById('profilePicture');
